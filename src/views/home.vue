@@ -2,11 +2,22 @@
   <div>
     <span>Home page component </span>
     <span>
-      SideNavbar value comes from vuex store :
-      {{ $store.getters.isSideNavbar ? "ON" : "OFF" }}
+      Authenticated value comes from vuex store :
+      {{ $store.getters.isSideNavbar ? "TRUE" : "FALSE" }}
+
+      <br />
+      <button @click="toggleSideNav">Toggle value in store</button>
     </span>
-    <br />
-    <button @click="toggleSideNav">Toggle value in store</button>
+    <p>
+      Click Here to redirect to protected page, redirect only works if
+      Authenticated is true from above button.
+      <br />
+      Otherwise it will redirect to this same homepage.
+      <br />
+      <button @click="$router.push('/protected-route')">
+        To Protected Page
+      </button>
+    </p>
   </div>
 </template>
 
